@@ -83,28 +83,18 @@ public class MoveHero : MonoBehaviour
 
         void TurnR()
         {
-            pers.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
-            pers.transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = true;
-            pers.transform.GetChild(2).GetComponent<SpriteRenderer>().flipX = true;
-            pers.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = true;
-            pers.transform.GetChild(4).GetComponent<SpriteRenderer>().flipX = true;
-            pers.transform.GetChild(5).GetComponent<SpriteRenderer>().flipX = true;
+            for(var i = 0;i < pers.transform.childCount;i++) pers.transform.GetChild(i).GetComponent<SpriteRenderer>().flipX = true;
+            pers.transform.GetChild(pers.transform.childCount - 1).transform.Rotate(0, 0, -64);
 
         }
 
         void TurnL()
         {
-            pers.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
-            pers.transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
-            pers.transform.GetChild(2).GetComponent<SpriteRenderer>().flipX = false;
-            pers.transform.GetChild(3).GetComponent<SpriteRenderer>().flipX = false;
-            pers.transform.GetChild(4).GetComponent<SpriteRenderer>().flipX = false;
-            pers.transform.GetChild(5).GetComponent<SpriteRenderer>().flipX = false;
-
+            for (var i = 0; i < pers.transform.childCount; i++) pers.transform.GetChild(i).GetComponent<SpriteRenderer>().flipX = false;
+            pers.transform.GetChild(pers.transform.childCount - 1).transform.Rotate(0, 0, 64);
         }
-        //TODO:
-        //Устранение паузы между сменой направлений движения
-        //Анимация
+
+       
 
     }
 }
